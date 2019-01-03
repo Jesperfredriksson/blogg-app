@@ -1,8 +1,15 @@
 import React, { Component } from "react";
+import Bloggpost from "./Bloggpost";
+import "./styles.css";
+import App from "./App";
 import * as contentful from "contentful";
 import * as contentfulManagement from "contentful-management";
+import { Link } from "react-router-dom";
+class Blogghome extends Component {
+  state = {
+    posts: []
+  };
 
-class App extends Component {
   client = contentful.createClient({
     space: "d9vqtdmqtwz9",
     accessToken:
@@ -48,6 +55,17 @@ class App extends Component {
   };
 
   render() {
-    return;
+    return (
+      <div className="blogghome">
+        <Link to="/Newpost">New post</Link>
+        <div className="post-container">
+          {this.state.posts.map(({ fields }, i) => (
+            <Bloggpost key={i} {...fields} />
+          ))}
+        </div>
+      </div>
+    );
   }
 }
+
+export default Blogghome;

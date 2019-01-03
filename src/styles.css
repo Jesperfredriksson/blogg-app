@@ -1,0 +1,66 @@
+.post-container {
+  display: flex;
+  justify-content: center;
+  font-family: "Lato", sans-serif;
+  width: 65%;
+  display: flex;
+  flex-flow: wrap;
+}
+
+p {
+  font-size: 8px;
+}
+
+.post {
+  border: 1px black solid;
+  width: 300px;
+  text-align: center;
+  background-color: white;
+  box-shadow: 2px 2px 2px black;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  height: auto;
+}
+.post:hover {
+  transform: scale(1.01, 1.01);
+}
+
+.post-img {
+  /*background-image: url("https://images.unsplash.com/photo-1542322332-224a7d1817d8?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=ec423f4506bf90019490eecda8345d8a&dpr=1&auto=format&fit=crop&w=1000&q=80&cs=tinysrgb");*/
+  background-position: center;
+  background-size: 100%;
+  height: 50%;
+  display: flex;
+  min-height: 100px;
+}
+
+body {
+  background-color: rgb(230, 230, 230);
+}
+
+.post-header {
+  font-size: 30px;
+}
+
+.post-content {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 3px;
+  overflow: auto;
+}
+
+.blogghome {
+  display: flex;
+  flex-flow: wrap;
+  justify-content: center;
+}
+
+.create-post-btn {
+  display: flex;
+  height: 25px;
+}
+
+a {
+  border: 2px black;
+}

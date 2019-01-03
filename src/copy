@@ -1,0 +1,26 @@
+  
+  state = {
+    isActive: false,
+    posts: []
+  };
+
+  client = contentful.createClient({
+    space: "d9vqtdmqtwz9",
+    accessToken:
+      "67ad3a8e951532259a56e61a20306597ba13ced44cd974055a912dcbd099f94d"
+  });
+
+  componentDidMount() {
+    this.fetchPosts().then(this.setPosts);
+  }
+
+  fetchPosts = () => this.client.getEntries();
+
+  setPosts = response => {
+    this.setState({
+      posts: response.items
+    });
+  };
+
+<--TOKEN-->
+  CFPAT-1844ae186a0c33d1ad1d6f83a3c8af337e7f2ea5d51c05069395cfe4ca39d664
