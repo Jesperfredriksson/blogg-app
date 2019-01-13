@@ -8,24 +8,34 @@
 }
 
 p {
-  font-size: 8px;
+  font-size: 20px;
+}
+
+.postOpen {
+max-height: 500px;
 }
 
 .post {
   border: 1px black solid;
-  width: 300px;
+  width: 720px;
   text-align: center;
   background-color: white;
   box-shadow: 2px 2px 2px black;
   margin: 10px;
+  margin-top: 40px;
   display: flex;
   flex-direction: column;
-  height: auto;
+  max-height: 50px;
+  transition: 500ms all;
 }
+
+
 .post:hover {
   transform: scale(1.01, 1.01);
 }
 
+.post-header {
+}
 .post-img {
   /*background-image: url("https://images.unsplash.com/photo-1542322332-224a7d1817d8?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=ec423f4506bf90019490eecda8345d8a&dpr=1&auto=format&fit=crop&w=1000&q=80&cs=tinysrgb");*/
   background-position: center;
@@ -45,9 +55,11 @@ body {
 
 .post-content {
   display: flex;
-  justify-content: center;
   margin-bottom: 3px;
   overflow: auto;
+  align-items: flex-end;
+  justify-content: center;
+
 }
 
 .blogghome {

@@ -12,17 +12,18 @@ class Bloggpost extends Component {
   };
 
   render() {
+    const { isActive } = this.state
     return (
-      <div className="post" onClick={this.handleClick}>
-        <div className="post-img" />
-        <img src={this.props.heroImage} alt="Postbild" />
+      <div className="post" onClick={this.handleClick} style={{ maxHeight: isActive && 500 + "px"}}>
+        {/*<div className="post-img" />
+        <img src={this.props.heroImage} alt="Postbild" />*/}
         <div className="post-header">{this.props.title}</div>
-        <div className="post-description">{this.props.description}</div>
+        {/*<div className="post-description">{this.props.description}</div>*/}
         <div
           className="post-content"
           style={{ display: this.state.isActive ? "flex" : "none" }}
         >
-          <p>{this.props.body}</p>
+          <div dangerouslySetInnerHTML={{__html: this.props.body}} />
           {this.props.publishDate}
         </div>
       </div>

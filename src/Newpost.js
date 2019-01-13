@@ -1,33 +1,65 @@
 import React, { Component } from "react";
 import "./styles.css";
 import * as contentfulManagement from "contentful-management";
-import CKEditor from "@ckeditor/ckeditor5-react";
-import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
+import Editor from "./Editor"
+import { Link, withRouter } from "react-router-dom";
 
 class Newpost extends Component {
-  management = contentfulManagement.createClient({
-    accessToken:
-      "CFPAT-1844ae186a0c33d1ad1d6f83a3c8af337e7f2ea5d51c05069395cfe4ca39d664"
-  });
-
-  componentDidMount() {
-    this.createPost();
+  state = { 
+    content: 'Skriv här',
+    title: "Titel"
+}
+  
+  onChange = (evt) => {
+    console.log("onChange fired with event info: ", evt);
+    var newContent = evt.editor.getData();
+    this.setState({
+      content: newContent
+    })
   }
 
-  createPost = () => {
+  onTitleChange = event => {
+    console.log("onChange fired with event info: ", event);
+    this.setState({
+      title: event.target.value
+    })
+  }
+
+  onBlur = (evt) => {
+    console.log("onBlur event called with event info: ", evt);
+  }
+  
+  afterPaste = (evt) => {
+    console.log("afterPaste event called with event info: ", evt);
+  }
+  
+  management = contentfulManagement.createClient({
+    accessToken:
+      "CFPAT-2f9045d81d744fa4587a27744815c20fa55906325ed56471a20cd2c4493d2807"
+  });
+
+  createPost = event => {
+    event.preventDefault()
     this.management
       .getSpace("d9vqtdmqtwz9")
       .then(space =>
-        space.createEntry("employee", {
+        space.createEntry("blogPost", {
           fields: {
-            name: {
-              "en-US": "Jesperhoes"
+            body: { 
+             "sv-SE": this.state.content
+            },
+              title: {
+            "sv-SE": this.state.title
+
             }
           }
         })
-      )
+        )
+      .then((entry) => entry.publish())
       .then(entry => console.log(entry))
       .catch(console.error);
+
+      this.props.history.push("/")
   };
 
   handeClick = () => {
@@ -35,17 +67,30 @@ class Newpost extends Component {
   };
 
   render() {
+ 
     return (
       <div>
-        <CKEditor
-          editor={ClassicEditor}
-          data="<p>Hej CKEditor</p>"
-          onInit={editor => {}}
-        />
         <h2>Ny post</h2>
+        <h3>Titel</h3>
+        <input 
+        onChange={this.onTitleChange}
+        value={this.state.title}
+        />
+        {this.state.title}
+        <div>
+        <h3>Innehåll</h3>
+        <Editor
+          content={this.state.content}
+          onChange={this.onChange}
+          onBlur={this.onBlur}
+          onAfterPaste={this.afterPaste}
+        />
+        </div>
+        <button onClick={this.createPost}>Skicka</button>
+
       </div>
     );
   }
 }
 
-export default Newpost;
+export default withRouter(Newpost);
