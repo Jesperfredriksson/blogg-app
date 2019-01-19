@@ -1,13 +1,13 @@
 import React, { Component } from "react";
-import "./styles.css";
 import * as contentfulManagement from "contentful-management";
 import Editor from "./Editor"
-import { Link, withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
+import Navbar from "./Navbar";
 
 class Newpost extends Component {
   state = { 
     content: 'Skriv här',
-    title: "Titel"
+    title: ""
 }
   
   onChange = (evt) => {
@@ -33,6 +33,7 @@ class Newpost extends Component {
     console.log("afterPaste event called with event info: ", evt);
   }
   
+
   management = contentfulManagement.createClient({
     accessToken:
       "CFPAT-2f9045d81d744fa4587a27744815c20fa55906325ed56471a20cd2c4493d2807"
@@ -63,22 +64,48 @@ class Newpost extends Component {
   };
 
   handeClick = () => {
-    this.createPost();
+    //this.createPost();
+    this.createNewPost()
   };
 
+  createNewPost = async () => {
+    this.setState()
+    console.log("new post yay")
+    const post = {
+      post: {
+        title: this.state.title,
+        body: this.state.content
+      }
+
+    }
+
+    await fetch("https://dry-mountain-90515.herokuapp.com/posts", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({...post})
+    })
+    this.props.history.push("/")
+  }
+  
   render() {
  
     return (
-      <div>
-        <h2>Ny post</h2>
+      <div className="blogghome-container">
+      <Navbar />
+      <div className="blogghome-inner">
+      <div className="newpost-container">
+        <h2>New post</h2>
         <h3>Titel</h3>
-        <input 
+        <input style={{textAlign: "center", width: 555 + "px", position: "relative", left: 165 + "px" }}
         onChange={this.onTitleChange}
         value={this.state.title}
+        placeholder="Skriv här"
         />
         {this.state.title}
         <div>
-        <h3>Innehåll</h3>
+        <h3>Content</h3>
         <Editor
           content={this.state.content}
           onChange={this.onChange}
@@ -86,8 +113,9 @@ class Newpost extends Component {
           onAfterPaste={this.afterPaste}
         />
         </div>
-        <button onClick={this.createPost}>Skicka</button>
-
+        <button onClick={this.createNewPost}>Skicka</button>
+        </div>
+        </div>
       </div>
     );
   }

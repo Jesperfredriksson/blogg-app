@@ -18,6 +18,7 @@
     "react-apollo": "^2.3.3",
     "react-ckeditor-component": "^1.1.0",
     "react-dom": "^16.6.3",
+    "react-mailto": "^0.4.0",
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.1",
     "react-transition-group": "^2.5.0",

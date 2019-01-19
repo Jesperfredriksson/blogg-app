@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import Bloggpost from "./Bloggpost";
-import "./styles.css";
 import * as contentful from "contentful";
-import { Link } from "react-router-dom";
+import Navbar from "./Navbar"
+
+
 class Blogghome extends Component {
   state = {
     posts: []
@@ -21,10 +22,17 @@ class Blogghome extends Component {
   })*/
 
   componentDidMount() {
-    this.fetchPosts().then(this.setPosts);
+    //this.fetchPosts().then(this.setPosts);
+    this.fetchNewPosts()
   }
 
   fetchPosts = () => this.client.getEntries();
+  fetchNewPosts = async () => {
+    const response = await fetch("https://dry-mountain-90515.herokuapp.com/posts")
+    const data = await response.json()
+    console.log("jonas data", data)
+    this.setState({posts: data}) 
+  }
  
   setPosts = response => {
     this.setState({
@@ -36,14 +44,16 @@ class Blogghome extends Component {
 
   render() {
     return (
-      
-      <div className="blogghome">
-        <Link to="/Newpost">New post</Link>
+      <div className="blogghome-container">
+      <Navbar />
+      <div className="blogghome-inner">
+        
         <div className="post-container">
-          {this.state.posts.map(({ fields }, i) => (
-            <Bloggpost key={i} {...fields} />
+          {this.state.posts.reverse().map(post => (
+            <Bloggpost key={post.id} {...post} />
           ))}
         </div>
+      </div>
       </div>
     );
   }
