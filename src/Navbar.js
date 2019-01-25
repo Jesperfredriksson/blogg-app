@@ -1,30 +1,35 @@
 import React, { Component } from "react";
 import NavBarLink from "./components/navbar/navbarlink";
 
-
-
 class Navbar extends Component {
-    handleHejClick = () => {
-        alert("hej")
-    }
+  handleHejClick = () => {
+    alert("hej");
+  };
 
-    handleHoppClick = () => {
-        alert("hopp")
-    }
+  handleHoppClick = () => {
+    alert("hopp");
+  };
 
-    render() {
-        return (
-            <div className="navbar-container">
-                <div className="navbar-spacer"/>
-                <div className="btn-container">
-                <NavBarLink to="/newpost">New post</NavBarLink>
-                <div className="navbar-spacer2" />
-                <NavBarLink to="/about">About me</NavBarLink>
-                <div className="navbar-spacer2" />
-                <NavBarLink to="/contact">Contact</NavBarLink>
-            </div>
-            </div>
-        );
-    };
+  render() {
+    return (
+      <div className="navbar-container">
+        <div className="navbar-spacer" />
+        <div className="btn-container">
+          <NavBarLink class="nav-item" to="/newpost">
+            New post
+          </NavBarLink>
+          <NavBarLink className="nav-item" to="/about">
+            About me
+          </NavBarLink>
+          <NavBarLink className="nav-item" to="/contact">
+            Contact
+          </NavBarLink>
+        </div>
+        <NavBarLink className="nav-item" to="/">
+          Home
+        </NavBarLink>
+      </div>
+    );
+  }
 }
-export default Navbar 
+export default Navbar;

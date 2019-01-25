@@ -1,38 +1,35 @@
-
-
 .post-container {
   display: flex;
   justify-content: center;
   font-family: "Lato", sans-serif;
-  width: 65%;
-  display: flex;
-  flex-flow: wrap;
-  padding: 45px;  
+  /*width: 65%;*/
+  flex-direction: column;
+  padding: 45px;
 }
 
 .newpost-container {
   display: flex;
   justify-content: center;
   font-family: "Lato", sans-serif;
-  width: 65%;
+  /*width: 65%;*/
   display: flex;
   flex-flow: column;
-  padding: 45px;  
+  padding: 45px;
 }
 
 p {
-  font-size: 20px;
+  font-size: 15px;
 }
 
 .postOpen {
-max-height: 500px;
+  max-height: 500px;
 }
 
 .post {
   width: 720px;
   text-align: center;
   background-color: white;
-  box-shadow: 0px 10px 20px RGBA(0,0,0,15%);
+  box-shadow: 0px 2px 8px RGBA(0, 0, 0, 15%);
   margin: 10px;
   margin-top: 40px;
   display: flex;
@@ -43,10 +40,9 @@ max-height: 500px;
   user-select: none;
 }
 
-
 .post:hover {
   transform: scale(1.01, 1.01);
-  box-shadow: 0px 20px 20px RGBA(0,0,0,15%);
+  box-shadow: 0px 5px 8px RGBA(0, 0, 0, 15%);
 }
 
 .post-header {
@@ -61,10 +57,9 @@ max-height: 500px;
 }
 
 body {
-  background-color: #EFF1F3;
+  background-color: #f8f8f8;
   margin: 0px;
   font-family: "Lato", sans-serif;
-
 }
 
 .post-header {
@@ -77,7 +72,6 @@ body {
   overflow: auto;
   align-items: flex-end;
   justify-content: center;
-
 }
 
 .blogghome-inner {
@@ -109,7 +103,7 @@ a {
 
 .navbar-container {
   border-bottom: 1px solid black;
-  padding: 8px;
+  padding: 0px;
   display: flex;
   justify-content: center;
   background-color: #2420388f;
@@ -117,31 +111,28 @@ a {
   position: fixed;
   right: 0;
   left: 0;
+  height: 35px;
+  z-index: 1;
 }
 
-.link-style {
-    /*appearance: none;
-    background-color: F6F4F3;
-    border: 0;
-    border-radius: 3px;
-    color: black;
-    cursor: pointer;
-    display: inline-block;
-    -webkit-font-smoothing: antialiased;
-    font-weight: 200;
-    line-height: 1;
-    padding: 8px 16px;
-    text-decoration: none;
-    user-select: none;
-    vertical-align: middle;
-    white-space: nowrap;*/
-    margin: 0 10px;
-    background:none;
-    border:none;
-    padding:none;
-    color:black;
-    cursor:pointer;
-    text-decoration: none;
+.navbar-link-style {
+  margin: 0 30px;
+  background: none;
+  border: none;
+  padding: none;
+  color: black;
+  cursor: pointer;
+  text-decoration: none;
+  margin-top: 10px;
+}
+
+.a {
+  display: flex;
+  text-decoration: none;
+  color: black;
+  position: relative;
+  top: 55px;
+  right: 60px;
 }
 
 .btn-container {
@@ -162,16 +153,56 @@ a {
   width: 25px;
 }
 
+.nav-item {
+  margin-right: 30px;
+}
+
 .post-spacer {
   height: 20px;
 }
 
 .dimmer {
-height: 70px;
-width: 100%;
-position: absolute;
-left: 0;
-right: 0;
-bottom: 0;
-background: linear-gradient(180deg,hsla(0,0%,100%,0),hsla(0,0%,100%,.66) 25%,hsla(0,0%,100%,.9) 45%,#fff 80%);
+  height: 70px;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    180deg,
+    hsla(0, 0%, 100%, 0),
+    hsla(0, 0%, 100%, 0.66) 25%,
+    hsla(0, 0%, 100%, 0.9) 45%,
+    #fff 80%
+  );
+  display: flex;
+  justify-content: center;
+}
+
+.read-more {
+  display: flex;
+  height: 18px;
+  margin-top: 40px;
+}
+
+.title-input {
+  display: flex;
+  justify-content: center;
+}
+
+.post-content-body {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+}
+
+.post-body-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.post-body {
+  display: flex;
+  flex-wrap: wrap;
+  width: 500px;
 }
