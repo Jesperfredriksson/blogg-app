@@ -12,6 +12,7 @@
     "dom": "0.0.3",
     "firebase": "^5.5.9",
     "firestore": "^1.1.6",
+    "git": "^0.1.5",
     "graphql": "^14.0.2",
     "graphql-tag": "^2.10.0",
     "react": "^16.6.3",
