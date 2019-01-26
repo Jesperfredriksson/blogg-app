@@ -34,7 +34,7 @@ class Blogghome extends Component {
         space.createEntry("employee", {
           fields: {
             name: {
-              "en-US": "Jesperhoes"
+              "sv-SE": "Jesperhoes"
             }
           }
         })
@@ -57,7 +57,6 @@ class Blogghome extends Component {
   render() {
     return (
       <div className="blogghome">
-        <Link to="/Newpost">New post</Link>
         <div className="post-container">
           {this.state.posts.map(({ fields }, i) => (
             <Bloggpost key={i} {...fields} />

@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import "./styles.css";
 import * as contentfulManagement from "contentful-management";
-import CKEditor from "@ckeditor/ckeditor5-react";
-import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
+import CKEditor from "./CKeditor";
 
 class Newpost extends Component {
   management = contentfulManagement.createClient({
@@ -21,7 +20,7 @@ class Newpost extends Component {
         space.createEntry("employee", {
           fields: {
             name: {
-              "en-US": "Jesperhoes"
+              "sv-SE": "Jesperhoes"
             }
           }
         })
@@ -37,11 +36,7 @@ class Newpost extends Component {
   render() {
     return (
       <div>
-        <CKEditor
-          editor={ClassicEditor}
-          data="<p>Hej CKEditor</p>"
-          onInit={editor => {}}
-        />
+        <CKEditor />
         <h2>Ny post</h2>
       </div>
     );

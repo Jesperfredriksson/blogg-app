@@ -56,10 +56,10 @@ body {
   justify-content: center;
 }
 
-.create-post-btn {
+/*.create-post-btn {
   display: flex;
   height: 25px;
-}
+}*/
 
 a {
   border: 2px black;
