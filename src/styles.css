@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   font-family: "Lato", sans-serif;
-  /*width: 65%;*/
+
   flex-direction: column;
   padding: 45px;
 }
@@ -11,7 +11,7 @@
   display: flex;
   justify-content: center;
   font-family: "Lato", sans-serif;
-  /*width: 65%;*/
+
   display: flex;
   flex-flow: column;
   padding: 45px;
@@ -80,11 +80,6 @@ body {
   justify-content: center;
 }
 
-/*.create-post-btn {
-  display: flex;
-  height: 25px;
-}*/
-
 a {
   border: 2px black;
   text-align: center;
@@ -102,16 +97,15 @@ a {
 }
 
 .navbar-container {
-  border-bottom: 1px solid black;
   padding: 0px;
   display: flex;
   justify-content: center;
-  background-color: #2420388f;
+  background-color: #adecff6b;
   height: 19px;
   position: fixed;
   right: 0;
   left: 0;
-  height: 35px;
+  height: 60px;
   z-index: 1;
 }
 
@@ -124,6 +118,7 @@ a {
   cursor: pointer;
   text-decoration: none;
   margin-top: 10px;
+  font-size: 20px;
 }
 
 .a {
@@ -137,6 +132,7 @@ a {
 
 .btn-container {
   display: flex;
+  line-height: 25px;
 }
 
 .link-style:hover {
@@ -205,4 +201,9 @@ a {
   display: flex;
   flex-wrap: wrap;
   width: 500px;
+  justify-content: center;
+}
+
+.post-publish-date {
+  font-size: 8px;
 }
