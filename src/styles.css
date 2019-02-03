@@ -198,6 +198,7 @@ a {
 }
 .btn-container {
   display: flex;
+  line-height: 25px;
 }
 .link-style:hover {
   border-bottom: 2px White solid;
@@ -250,4 +251,9 @@ a {
   display: flex;
   flex-wrap: wrap;
   width: 500px;
+  justify-content: center;
+}
+
+.post-publish-date {
+  font-size: 8px;
 }

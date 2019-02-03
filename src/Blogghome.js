@@ -27,6 +27,22 @@ class Blogghome extends Component {
   }
 
   fetchPosts = () => this.client.getEntries();
+  /*<<<<<<< HEAD
+  createPost = () => {
+    this.management
+      .getSpace("d9vqtdmqtwz9")
+      .then(space =>
+        space.createEntry("employee", {
+          fields: {
+            name: {
+              "sv-SE": "Jesperhoes"
+            }
+          }
+        })
+      )
+      .then(entry => console.log(entry))
+      .catch(console.error);*/
+
   fetchNewPosts = async () => {
     const response = await fetch(
       "https://dry-mountain-90515.herokuapp.com/posts"
