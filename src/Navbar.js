@@ -13,7 +13,6 @@ class Navbar extends Component {
   render() {
     return (
       <div className="navbar-container">
-        <div className="navbar-spacer" />
         <div className="btn-container">
           <NavBarLink class="nav-item" to="/newpost">
             New post

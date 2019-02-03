@@ -5,6 +5,7 @@ import Newpost from "./Newpost";
 import aboutme from "./aboutme";
 import contactme from "./contactme";
 import PostShow from "./components/PostShow";
+import editPost from "./components/updatePost/editPost";
 
 const Router = () => (
   <BrowserRouter>
@@ -14,6 +15,7 @@ const Router = () => (
       <Route exact path="/about" component={aboutme} />
       <Route exact path="/contact" component={contactme} />
       <Route exact path="/posts/:id" component={PostShow} />
+      <Route exact path="/posts/:id/edit" component={editPost} />
     </Switch>
   </BrowserRouter>
 );

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Bloggpost from "./Bloggpost";
 import * as contentful from "contentful";
 import Navbar from "./Navbar";
+import BloggpostBig from "./components/bigPost.jsx/BloggpostBig";
 
 class Blogghome extends Component {
   state = {
@@ -45,13 +46,22 @@ class Blogghome extends Component {
 
   render() {
     return (
-      <div className="blogghome-container">
-        <Navbar />
-        <div className="blogghome-inner">
-          <div className="post-container">
-            {this.state.posts.reverse().map(post => (
-              <Bloggpost key={post.id} {...post} />
-            ))}
+      <div className="blogghome-white-container">
+        <div className="blogghome-container">
+          <Navbar />
+          <div className="blogghome-big">
+            <div className="post-container-big">
+              {this.state.posts.length > 0 && (
+                <BloggpostBig {...this.state.posts.reverse()[0]} />
+              )}
+            </div>
+          </div>
+          <div className="blogghome-small">
+            <div className="post-container">
+              {this.state.posts.slice(1, 4).map(post => (
+                <Bloggpost {...post} />
+              ))}
+            </div>
           </div>
         </div>
       </div>

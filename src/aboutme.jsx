@@ -10,10 +10,7 @@ class aboutme extends Component {
           <div className="post-container">
             <h3>About me</h3>
             <div className="profile-picture">
-              <img
-                src="https://images.unsplash.com/photo-1490723286627-4b66e6b2882a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80"
-                alt="Profile picture"
-              />
+              <img src="https://images.unsplash.com/photo-1490723286627-4b66e6b2882a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80" />
             </div>
             <p>
               En oändlig själ som vandrar i en oändlig öken av ovetskap och

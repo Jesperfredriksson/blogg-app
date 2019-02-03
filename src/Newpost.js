@@ -74,8 +74,8 @@ class Newpost extends Component {
       }
     };
 
-    await fetch("https://dry-mountain-90515.herokuapp.com/posts/:ID", {
-      method: "PUT",
+    await fetch("https://dry-mountain-90515.herokuapp.com/posts", {
+      method: "POST",
       headers: {
         "Content-Type": "application/json"
       },
