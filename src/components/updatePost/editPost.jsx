@@ -34,7 +34,7 @@ class editPost extends Component {
     };
 
     await fetch("https://dry-mountain-90515.herokuapp.com/posts", {
-      method: "",
+      method: "PUT",
       headers: {
         "Content-Type": "application/json"
       },
